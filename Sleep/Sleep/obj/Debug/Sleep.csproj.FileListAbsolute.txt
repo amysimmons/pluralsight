@@ -1,0 +1,5 @@
+C:\pluralsight\Sleep\Sleep\bin\Debug\Sleep.exe.config
+C:\pluralsight\Sleep\Sleep\bin\Debug\Sleep.exe
+C:\pluralsight\Sleep\Sleep\bin\Debug\Sleep.pdb
+C:\pluralsight\Sleep\Sleep\obj\Debug\Sleep.exe
+C:\pluralsight\Sleep\Sleep\obj\Debug\Sleep.pdb
