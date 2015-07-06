@@ -19,6 +19,22 @@ namespace Grades
 			//AddGrade is available to be called on book because I have it defined as a member/method of my class 
 			book.AddGrade(91f);
 			book.AddGrade(89.5f);
+			book.AddGrade(75.5f);
+			 
+			//this method will hide the algorithms thati need to compute the stats, it will encapsulate the methods that i need 
+			GradeStatistics stats = book.ComputeStatistics();
+			Console.WriteLine(stats.AverageGrade);
+			Console.WriteLine(stats.HighestGrade);
+			Console.WriteLine(stats.LowestGrade);
+
+		/*
+			GradeBook book2 = new GradeBook();
+			book2.AddGrade(11f);
+			book2.AddGrade(100f);
+
+			GradeBook book3 = book2;
+			book3.AddGrade(60f);
+		*/
 		}
 	}
 }
