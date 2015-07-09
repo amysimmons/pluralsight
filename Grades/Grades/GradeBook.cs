@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-	class GradeBook
+	public class GradeBook
 	{
 		//this is a default constructor, which doesn't take any parameters, so when someone initializesa  gradebook they don't have to pass in any parameters
 		//GRadebook is a class, it's a blueprint for creating objects 
@@ -44,6 +44,9 @@ namespace Grades
 			stats.AverageGrade = sum / grades.Count;
 			return stats;
 		}
+
+
+		public string Name;
 
 		//this is a class member that represents state 
 		//it creates a list of floating point numbers
