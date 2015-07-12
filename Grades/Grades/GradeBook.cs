@@ -80,7 +80,10 @@ namespace Grades
 						//announce the name has changed
 						if (NameChanged != null)
 						{
-							NameChanged(oldValue, value);
+							NameChangedEventArgs args = new NameChangedEventArgs();
+							args.OldValue = oldValue;
+							args.NewValue = value;
+							NameChanged(this, args);
 						}
 				
 					}
@@ -91,7 +94,8 @@ namespace Grades
 
 		//this delegate is now a piece of state that I am carrying around
 		//and i can invoke 
-		public NameChangedDelegate NameChanged;
+		//delegate public NameChangedDelegate NameChanged; 
+		public event NameChangedDelegate NameChanged; //event
 
 		//this is a class member that represents state 
 		//it creates a list of floating point numbers

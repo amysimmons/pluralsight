@@ -41,7 +41,7 @@ namespace Grades
 			//this method will hide the algorithms that i need to compute the stats, it will encapsulate the methods that i need 
 			GradeStatistics stats = book.ComputeStatistics();
 
-			book.NameChanged = new NameChangedDelegate(OnNameChanged);
+			book.NameChanged += OnNameChanged;
 			book.Name = "Allen's book";
 			WriteBytes(stats.AverageGrade);
 			
@@ -67,10 +67,11 @@ namespace Grades
 			//PassByValueAndRef();
 		}
 
-		private static void OnNameChanged(string oldValue, string newValue)
+		private static void OnNameChanged(object sender, NameChangedEventArgs args)
 		{
-			Console.WriteLine("Name changed from {0} to {1}", oldValue, newValue);
+			Console.WriteLine("Name changed from {0} to {1}", args.OldValue, args.NewValue);
 		}
+
 
 		private static void WriteBytes(float value)
 		{
