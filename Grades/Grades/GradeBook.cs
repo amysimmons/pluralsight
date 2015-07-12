@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,10 +9,22 @@ namespace Grades
 {
 	public class GradeBook
 	{
+		/*
 		//this is a default constructor, which doesn't take any parameters, so when someone initializesa  gradebook they don't have to pass in any parameters
 		//GRadebook is a class, it's a blueprint for creating objects 
 		public GradeBook()
+			//on this object, call the other constructor which takes a name paramater
+			//this is done to avoid repeating the 	//grades = new List<float>(); line 
+			: this("No name")
 		{
+			//grades = new List<float>();
+		}
+		 * */
+
+		//this is setting a default value when no name string is passed in
+		public GradeBook(string name = "There is no name")
+		{
+			Name = name;
 			grades = new List<float>();
 		}
 		
@@ -45,8 +58,24 @@ namespace Grades
 			return stats;
 		}
 
+		//this is a private field 
+		private string _name;
 
-		public string Name;
+		//this is a property 
+		public string Name
+		{
+			get
+			{
+				return _name;
+			}
+			set
+			{
+				if (!String.IsNullOrEmpty(value))
+				{
+					_name = value;
+				}
+			}
+		}
 
 		//this is a class member that represents state 
 		//it creates a list of floating point numbers
