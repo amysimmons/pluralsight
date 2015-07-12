@@ -72,10 +72,26 @@ namespace Grades
 			{
 				if (!String.IsNullOrEmpty(value))
 				{
-					_name = value;
+					if (_name != value)
+					{
+						var oldValue = _name;
+						_name = value;
+		
+						//announce the name has changed
+						if (NameChanged != null)
+						{
+							NameChanged(oldValue, value);
+						}
+				
+					}
+
 				}
 			}
 		}
+
+		//this delegate is now a piece of state that I am carrying around
+		//and i can invoke 
+		public NameChangedDelegate NameChanged;
 
 		//this is a class member that represents state 
 		//it creates a list of floating point numbers

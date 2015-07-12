@@ -31,7 +31,7 @@ namespace Grades
 			//as well as types from the framework class library
 			//new is a constructor method to create a new object, which is an instance of the class
 			
-			GradeBook book = new GradeBook();
+			GradeBook book = new GradeBook("Scott's book");
 
 			//AddGrade is available to be called on book because I have it defined as a member/method of my class 
 			book.AddGrade(91f);
@@ -41,6 +41,8 @@ namespace Grades
 			//this method will hide the algorithms that i need to compute the stats, it will encapsulate the methods that i need 
 			GradeStatistics stats = book.ComputeStatistics();
 
+			book.NameChanged = new NameChangedDelegate(OnNameChanged);
+			book.Name = "Allen's book";
 			WriteBytes(stats.AverageGrade);
 			
 			Console.WriteLine(stats.AverageGrade);
@@ -63,6 +65,11 @@ namespace Grades
 
 			//Immutable();
 			//PassByValueAndRef();
+		}
+
+		private static void OnNameChanged(string oldValue, string newValue)
+		{
+			Console.WriteLine("Name changed from {0} to {1}", oldValue, newValue);
 		}
 
 		private static void WriteBytes(float value)
