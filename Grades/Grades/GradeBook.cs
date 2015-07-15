@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -25,7 +26,7 @@ namespace Grades
 		public GradeBook(string name = "There is no name")
 		{
 			Name = name;
-			grades = new List<float>();
+			_grades = new List<float>();
 		}
 		
 		//adds a member that will allow me to add a grade to the gradebook
@@ -35,7 +36,7 @@ namespace Grades
 			if (grade >= 0 && grade <= 100)
 			{
 				//adds to the grades collection the grade that is passed into the method 
-				grades.Add(grade);
+				_grades.Add(grade);
 			}
 
 		}
@@ -47,15 +48,24 @@ namespace Grades
 
 			float sum = 0f;
 
-			foreach (float grade in grades)
+			foreach (float grade in _grades)
 			{
 				stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
 				stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
 				sum += grade;
 			}
 
-			stats.AverageGrade = sum / grades.Count;
+			stats.AverageGrade = sum / _grades.Count;
 			return stats;
+		}
+
+		public void WriteGrades(TextWriter textWriter)
+		{
+			textWriter.WriteLine("Grades:");
+			foreach (float grade in _grades)
+			{
+				textWriter.WriteLine(grade);
+			}
 		}
 
 		//this is a private field 
@@ -102,6 +112,8 @@ namespace Grades
 		//this line declares a field in my program 
 		//this field initializer, 
 		//this list is effectivel a variable, but we call it a field because it is inside a class, and that's goign to remember or refer to the list of floating point numbers that represent our grades
-		private List<float> grades;
+		private List<float> _grades;
+
+
 	}
 }

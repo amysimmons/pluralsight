@@ -37,6 +37,7 @@ namespace Grades
 			book.AddGrade(91f);
 			book.AddGrade(89.5f);
 			book.AddGrade(75.5f);
+			book.WriteGrades(Console.Out);
 			  
 			//this method will hide the algorithms that i need to compute the stats, it will encapsulate the methods that i need 
 			GradeStatistics stats = book.ComputeStatistics();
