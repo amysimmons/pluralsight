@@ -13,7 +13,7 @@ namespace Grades
 			//as well as types from the framework class library
 			//new is a constructor method to create a new object, which is an instance of the class
 			
-			ThrowAwayGradeBoook book = new ThrowAwayGradeBoook("Scott's book");
+			GradeBook book = CreateGradeBook();
 
 			try
 			{
@@ -82,6 +82,12 @@ namespace Grades
 
 			//Immutable();
 			//PassByValueAndRef();
+		}
+
+		private static GradeBook CreateGradeBook()
+		{
+			GradeBook book = new ThrowAwayGradeBoook("Scott's book");
+			return book;
 		}
 
 		private static void OnNameChanged(object sender, NameChangedEventArgs args)

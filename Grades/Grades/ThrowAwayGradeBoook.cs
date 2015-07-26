@@ -15,7 +15,8 @@ namespace Grades
 			Console.WriteLine("throwaway ctor");
 		}
 
-		public GradeStatistics ComputeStatistics()
+		//override my base class implementation
+		public override GradeStatistics ComputeStatistics()
 		{
 			float lowest = float.MaxValue;
 			foreach (float grade in _grades)

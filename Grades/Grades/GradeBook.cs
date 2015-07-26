@@ -30,7 +30,9 @@ namespace Grades
 
 
 		//this method retrurns an object of type GradeStatistics
-		public GradeStatistics ComputeStatistics()
+		//because the method is virtual it will no longer determine the method right at compile time,  
+		//it's going to let things go until run time to determine the correct method to invoke
+		public virtual GradeStatistics ComputeStatistics()
 		{
 			GradeStatistics stats = new GradeStatistics();
 
