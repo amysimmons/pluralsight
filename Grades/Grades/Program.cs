@@ -13,7 +13,7 @@ namespace Grades
 			//as well as types from the framework class library
 			//new is a constructor method to create a new object, which is an instance of the class
 			
-			GradeBook book = new GradeBook("Scott's book");
+			ThrowAwayGradeBoook book = new ThrowAwayGradeBoook("Scott's book");
 
 			try
 			{
@@ -45,8 +45,8 @@ namespace Grades
 
 			try
 			{
-				Console.WriteLine("Please enter a name for the book ");
-				book.Name = Console.ReadLine();
+				//Console.WriteLine("Please enter a name for the book ");
+				//book.Name = Console.ReadLine();
 			}
 			catch (ArgumentException ex)
 			{

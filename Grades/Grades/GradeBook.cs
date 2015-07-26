@@ -10,18 +10,6 @@ namespace Grades
 {
 	public class GradeBook
 	{
-		/*
-		//this is a default constructor, which doesn't take any parameters, so when someone initializesa  gradebook they don't have to pass in any parameters
-		//GRadebook is a class, it's a blueprint for creating objects 
-		public GradeBook()
-			//on this object, call the other constructor which takes a name paramater
-			//this is done to avoid repeating the 	//grades = new List<float>(); line 
-			: this("No name")
-		{
-			//grades = new List<float>();
-		}
-		 * */
-
 		//this is setting a default value when no name string is passed in
 		public GradeBook(string name = "There is no name")
 		{
@@ -32,14 +20,14 @@ namespace Grades
 		//adds a member that will allow me to add a grade to the gradebook
 		public void AddGrade(float grade)
 		{
-
 			if (grade >= 0 && grade <= 100)
 			{
 				//adds to the grades collection the grade that is passed into the method 
 				_grades.Add(grade);
 			}
-
 		}
+
+
 
 		//this method retrurns an object of type GradeStatistics
 		public GradeStatistics ComputeStatistics()
@@ -47,7 +35,6 @@ namespace Grades
 			GradeStatistics stats = new GradeStatistics();
 
 			float sum = 0f;
-
 			foreach (float grade in _grades)
 			{
 				stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
@@ -67,9 +54,6 @@ namespace Grades
 				textWriter.WriteLine(grade);
 			}
 		}
-
-		//this is a private field 
-		private string _name;
 
 		//this is a property 
 		public string Name
@@ -111,8 +95,10 @@ namespace Grades
 		//this line declares a field in my program 
 		//this field initializer, 
 		//this list is effectivel a variable, but we call it a field because it is inside a class, and that's goign to remember or refer to the list of floating point numbers that represent our grades
-		private List<float> _grades;
-
+		private string _name;
+		
+		//protecyed means grades is avail to any code in this class, and any code in a derived class
+		protected List<float> _grades;
 
 	}
 }
