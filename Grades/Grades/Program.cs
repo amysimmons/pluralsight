@@ -13,7 +13,7 @@ namespace Grades
 			//as well as types from the framework class library
 			//new is a constructor method to create a new object, which is an instance of the class
 			
-			GradeBook book = CreateGradeBook();
+			IGradeTracker book = CreateGradeBook();
 
 			try
 			{
@@ -41,6 +41,7 @@ namespace Grades
 				return;
 			}
 
+			book.DoSomething();
 			book.WriteGrades(Console.Out);
 
 			try
@@ -84,9 +85,9 @@ namespace Grades
 			//PassByValueAndRef();
 		}
 
-		private static GradeBook CreateGradeBook()
+		private static IGradeTracker CreateGradeBook()
 		{
-			GradeBook book = new ThrowAwayGradeBoook("Scott's book");
+			IGradeTracker book = new ThrowAwayGradeBoook("Scott's book");
 			return book;
 		}
 

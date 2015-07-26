@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-	public class GradeBook
+	public class GradeBook : GradeTracker
 	{
 		//this is setting a default value when no name string is passed in
 		public GradeBook(string name = "There is no name")
@@ -18,7 +18,7 @@ namespace Grades
 		}
 		
 		//adds a member that will allow me to add a grade to the gradebook
-		public void AddGrade(float grade)
+		public override void AddGrade(float grade)
 		{
 			if (grade >= 0 && grade <= 100)
 			{
@@ -27,12 +27,10 @@ namespace Grades
 			}
 		}
 
-
-
 		//this method retrurns an object of type GradeStatistics
 		//because the method is virtual it will no longer determine the method right at compile time,  
 		//it's going to let things go until run time to determine the correct method to invoke
-		public virtual GradeStatistics ComputeStatistics()
+		public override GradeStatistics ComputeStatistics()
 		{
 			GradeStatistics stats = new GradeStatistics();
 
@@ -48,7 +46,7 @@ namespace Grades
 			return stats;
 		}
 
-		public void WriteGrades(TextWriter textWriter)
+		public override void WriteGrades(TextWriter textWriter)
 		{
 			textWriter.WriteLine("Grades:");
 			foreach (float grade in _grades)
@@ -57,47 +55,12 @@ namespace Grades
 			}
 		}
 
-		//this is a property 
-		public string Name
+		public override void DoSomething()
 		{
-			get
-			{
-				return _name;
-			}
-			set
-			{
-				if (String.IsNullOrEmpty(value))
-				{
-					throw new ArgumentException("Name cannot be null or empty");
-				}
-				if (_name != value)
-				{
-					var oldValue = _name;
-					_name = value;
-		
-					//announce the name has changed
-					if (NameChanged != null)
-					{
-						NameChangedEventArgs args = new NameChangedEventArgs();
-						args.OldValue = oldValue;
-						args.NewValue = value;
-						NameChanged(this, args);
-					}
-				}
-			}
+			
 		}
 
-		//this delegate is now a piece of state that I am carrying around
-		//and i can invoke 
-		//delegate public NameChangedDelegate NameChanged; 
-		public event NameChangedDelegate NameChanged; //event
-
-		//this is a class member that represents state 
-		//it creates a list of floating point numbers
-		//this line declares a field in my program 
-		//this field initializer, 
-		//this list is effectivel a variable, but we call it a field because it is inside a class, and that's goign to remember or refer to the list of floating point numbers that represent our grades
-		private string _name;
+		
 		
 		//protecyed means grades is avail to any code in this class, and any code in a derived class
 		protected List<float> _grades;
