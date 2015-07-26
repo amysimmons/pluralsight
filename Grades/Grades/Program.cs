@@ -1,28 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+using System.IO;
 
 namespace Grades
 {
 	class Program
 	{
-		/*
-		static void GiveBookAName(GradeBook book)
-		{
-			book.Name = "The GradeBook";
-		}
-
-		static void IncreementNumber(int number)
-		{
-			number += 1;
-		}
-		*/
-
 		static void Main(string[] args)
 		{
 			
@@ -33,11 +15,44 @@ namespace Grades
 			
 			GradeBook book = new GradeBook("Scott's book");
 
-			//AddGrade is available to be called on book because I have it defined as a member/method of my class 
-			book.AddGrade(91f);
-			book.AddGrade(89.5f);
-			book.AddGrade(75.5f);
+			try
+			{
+				using( FileStream stream = File.Open("grades.txt", FileMode.Open))
+				using(StreamReader reader = new StreamReader(stream))
+				{
+					string line = reader.ReadLine();
+					while (line != null)
+					{
+						float grade = float.Parse(line);
+						book.AddGrade(grade);
+						line = reader.ReadLine();
+					}
+				}
+
+			}
+			catch (FileNotFoundException ex)
+			{
+				Console.WriteLine("Could not locate the file");
+				return;
+			}
+			catch (UnauthorizedAccessException ex)
+			{
+				Console.WriteLine("No access");
+				return;
+			}
+
 			book.WriteGrades(Console.Out);
+
+			try
+			{
+				Console.WriteLine("Please enter a name for the book ");
+				book.Name = Console.ReadLine();
+			}
+			catch (ArgumentException ex)
+			{
+				Console.WriteLine("Invalid name");
+			}
+
 			  
 			//this method will hide the algorithms that i need to compute the stats, it will encapsulate the methods that i need 
 			GradeStatistics stats = book.ComputeStatistics();

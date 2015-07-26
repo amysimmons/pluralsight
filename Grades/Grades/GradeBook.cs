@@ -80,24 +80,23 @@ namespace Grades
 			}
 			set
 			{
-				if (!String.IsNullOrEmpty(value))
+				if (String.IsNullOrEmpty(value))
 				{
-					if (_name != value)
-					{
-						var oldValue = _name;
-						_name = value;
+					throw new ArgumentException("Name cannot be null or empty");
+				}
+				if (_name != value)
+				{
+					var oldValue = _name;
+					_name = value;
 		
-						//announce the name has changed
-						if (NameChanged != null)
-						{
-							NameChangedEventArgs args = new NameChangedEventArgs();
-							args.OldValue = oldValue;
-							args.NewValue = value;
-							NameChanged(this, args);
-						}
-				
+					//announce the name has changed
+					if (NameChanged != null)
+					{
+						NameChangedEventArgs args = new NameChangedEventArgs();
+						args.OldValue = oldValue;
+						args.NewValue = value;
+						NameChanged(this, args);
 					}
-
 				}
 			}
 		}
