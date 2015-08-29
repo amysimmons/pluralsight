@@ -32,8 +32,14 @@ namespace OOP
 			mySoftware.ISBN = "1234";
 			mySoftware.Purchase();
 
-			Item newItem = Item.GetItem();
-			Console.WriteLine("New item ID = {0}, name = {1}", newItem.ID, newItem.Name);
+			//Item newItem = Item.GetItem();
+			List<Item> myItems = Item.GetItems(20);
+			foreach (Item item in myItems)
+			{
+				Console.WriteLine("New item ID = {0}, name = {1}", 
+					item.ID, item.Name);
+			}
+			
 		}
 	}
 }

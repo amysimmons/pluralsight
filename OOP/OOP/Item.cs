@@ -17,10 +17,19 @@ namespace OOP
 			Console.WriteLine("Purchasing {0}", Name);
 		}
 
-		public Item GetItem()
+		public static List<Item> GetItems(int numToGet)
 		{
-			var newItem = new Item() {ID = 101, Name = "MyItem"};
-			return newItem;
+			var random = new Random();
+			var newList = new List<Item>();
+			Item newItem;
+			for (int i = 0; i < numToGet; i++)
+			{
+				newItem = new Item(){ID = random.Next(), Name = "My item" + i.ToString()};
+				newList.Add(newItem);
+			}
+
+			//var newItem = new Item() {ID = 101, Name = "MyItem"};
+			return newList;
 		}
 	}
 
