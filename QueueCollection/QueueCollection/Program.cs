@@ -34,3 +34,7 @@ namespace QueueCollection
 		}
 	}
 }
+
+//a stack is virtually the same as a queue, but we would use push and pop
+//instead of enqueue and dequeue 
+//a stack is a last in first out collection 
