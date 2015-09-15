@@ -45,24 +45,6 @@ namespace CustomerManagementSystem.BL
 			}
 		}
 
-		public Customer Retreive(int customerId)
-		{
-			//code that retreives the defined customer 
-			return new Customer();
-		}
-
-		public List<Customer> Retreive()
-		{
-			//returns a list of all customers 
-			return new List<Customer>();
-		} 
-
-		public bool Save()
-		{
-			//code that saves the defined customer 
-			return true;
-		}
-
 		public bool Validate()
 		{
 			var isValid = true;
