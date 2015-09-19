@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomerManagementSystem.BL
 {
-	public class Order
+	public class Order : EntityBase
 	{
 		//constructor 
 		public Order()
@@ -28,26 +28,12 @@ namespace CustomerManagementSystem.BL
 		public DateTimeOffset? OrderDate { get; set; }
 		public List<OrderItem> OrderItems { get; set; }
 
-		public Order Retreive(int productId)
-		{
-			return new Order();
-		}
-
-		public List<Order> Retreive()
-		{
-			return new List<Order>();
-		}
-
-		public bool Save()
-		{
-			return true;
-		}
-
 		public bool Validate()
 		{
 			var isValid = true;
 			if (OrderDate == null) isValid = false;
 			return isValid;
 		}
+
 	}
 }

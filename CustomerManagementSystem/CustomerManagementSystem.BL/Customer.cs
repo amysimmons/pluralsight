@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomerManagementSystem.BL
 {
-	public class Customer
+	public class Customer : EntityBase
 	{
 		//constructor method 
 		public Customer()
@@ -63,6 +63,8 @@ namespace CustomerManagementSystem.BL
 
 			return isValid;
 		}
+
+
 	}
 }
 

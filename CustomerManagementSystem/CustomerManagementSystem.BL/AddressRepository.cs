@@ -60,7 +60,20 @@ namespace CustomerManagementSystem.BL
 		public bool Save(Address address)
 		{
 			//code that saves the defined customer 
-			return true;
+			var success = true;
+
+			if (address.HasChanges && address.IsValid)
+			{
+				if (address.IsNew)
+				{
+					//call an insert stored procedure
+				}
+				else
+				{
+					//call an update stored procedure 
+				}
+			}
+			return success;
 		}
 	}
 }

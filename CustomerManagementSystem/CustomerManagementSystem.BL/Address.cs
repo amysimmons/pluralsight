@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomerManagementSystem.BL
 {
-	public class Address
+	public class Address : EntityBase
 	{
 
 		public Address()
