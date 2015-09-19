@@ -7,7 +7,7 @@ using Acme.Common;
 
 namespace CustomerManagementSystem.BL
 {
-	public class Product : EntityBase
+	public class Product : EntityBase, ILoggable
 	{
 		//constructor method 
 		public Product()
@@ -44,6 +44,15 @@ namespace CustomerManagementSystem.BL
 			if (CurrentPrice == null) isValid = false;
 
 			return isValid;
+		}
+
+
+		public string Log()
+		{
+			var logString = this.ProductId + ": " +
+			                this.ProductName + " " +
+			                "Detail: " + this.ProductDescription;
+			return logString;
 		}
 
 	}

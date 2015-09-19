@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acme.Common;
 
 namespace CustomerManagementSystem.BL
 {
-	public class Customer : EntityBase
+	public class Customer : EntityBase, ILoggable
 	{
 		//constructor method 
 		public Customer()
@@ -64,6 +65,13 @@ namespace CustomerManagementSystem.BL
 			return isValid;
 		}
 
+		public string Log()
+		{
+			var logString = this.CustomerId + ": " +
+			                this.FullName + " " +
+			                "Email: " + this.EmailAddress;
+			return logString;
+		}
 
 	}
 }
