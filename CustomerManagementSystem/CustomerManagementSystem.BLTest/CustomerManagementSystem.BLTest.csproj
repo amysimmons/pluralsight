@@ -58,6 +58,10 @@
     <Compile Include="AddressRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Acme.Common\Acme.Common.csproj">
+      <Project>{16F11426-D5F5-44E2-807A-BCD777E89E4E}</Project>
+      <Name>Acme.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomerManagementSystem.BL\CustomerManagementSystem.BL.csproj">
       <Project>{af4e536b-7465-431a-9a0e-83e59c50fd93}</Project>
       <Name>CustomerManagementSystem.BL</Name>
