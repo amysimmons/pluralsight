@@ -28,7 +28,7 @@ namespace CustomerManagementSystem.BL
 		public DateTimeOffset? OrderDate { get; set; }
 		public List<OrderItem> OrderItems { get; set; }
 
-		public bool Validate()
+		public override bool Validate()
 		{
 			var isValid = true;
 			if (OrderDate == null) isValid = false;

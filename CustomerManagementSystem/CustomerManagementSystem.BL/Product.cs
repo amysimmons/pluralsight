@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acme.Common;
 
 namespace CustomerManagementSystem.BL
 {
@@ -20,7 +21,18 @@ namespace CustomerManagementSystem.BL
 		}
 
 		public int ProductId { get; private set; }
-		public string ProductName { get; set; }
+
+		private String _ProductName;
+
+		public String ProductName
+		{
+			get
+			{
+				return _ProductName.InsertSpaces();
+			}
+			set { _ProductName = value; }
+		}
+		
 		public string ProductDescription { get; set; }
 		public Decimal? CurrentPrice { get; set; }
 
@@ -33,5 +45,6 @@ namespace CustomerManagementSystem.BL
 
 			return isValid;
 		}
+
 	}
 }

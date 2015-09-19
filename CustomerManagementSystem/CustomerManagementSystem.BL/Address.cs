@@ -28,7 +28,7 @@ namespace CustomerManagementSystem.BL
 		public string PostCode { get; set; }
 		public string Country { get; set; }
 
-		public bool Validate()
+		public override bool Validate()
 		{
 			var isValid = true;
 

@@ -54,7 +54,7 @@ namespace CustomerManagementSystem.BL
 			}
 		}
 
-		public bool Validate()
+		public override bool Validate()
 		{
 			var isValid = true;
 
