@@ -8,10 +8,19 @@ namespace CustomerManagementSystem.BL
 {
 	public class CustomerRepository
 	{
+		//sets up the association with address respository 
+		private AddressRepository addressRepository { get; set; }
+
+		public CustomerRepository()
+		{
+			addressRepository = new AddressRepository();
+		}
+
 		public Customer Retreive(int customerId)
 		{
 			//code that retreives the defined customer 
-			Customer customer = new Customer(1);
+			Customer customer = new Customer(customerId);
+			customer.AddressList = addressRepository.RetreiveByCustomerId(customerId).ToList();
 
 			if (customerId == 1)
 			{
@@ -29,7 +38,7 @@ namespace CustomerManagementSystem.BL
 			return new List<Customer>();
 		}
 
-		public bool Save()
+		public bool Save(Customer customer)
 		{
 			//code that saves the defined customer 
 			return true;

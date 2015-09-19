@@ -27,7 +27,53 @@ namespace CustomerManagementSystem.BL
 			return new List<Order>();
 		}
 
-		public bool Save()
+		public OrderDisplay RetreiveOrderDisplay(int orderId)
+		{
+			OrderDisplay orderDisplay = new OrderDisplay();
+
+			if (orderId == 10)
+			{
+				orderDisplay.FirstName = "xxx";
+				orderDisplay.LastName = "xxx";
+				orderDisplay.OrderDate = new DateTimeOffset();
+				orderDisplay.ShippingAddress = new Address()
+				{
+					AddressType = 1,
+					StreetLine1 = "xxx",
+					StreetLine2 = "xxx",
+					City = "xxx",
+					StateProvince = "xxx",
+					Country = "xxx",
+					PostCode = "xxx"
+				};
+			}
+
+			orderDisplay.orderDisplayItemList = new List<OrderDisplayItem>();
+
+			if (orderId == 10)
+			{
+				var orderDisplayItem = new OrderDisplayItem()
+				{
+					ProductName = "xxx",
+					PurchasePrice = 15.9M,
+					OrderQuantitiy = 1
+				};
+
+				orderDisplay.orderDisplayItemList.Add(orderDisplayItem);
+
+				orderDisplayItem = new OrderDisplayItem()
+				{
+					ProductName = "xxx",
+					PurchasePrice = 6M,
+					OrderQuantitiy = 1
+				};
+
+				orderDisplay.orderDisplayItemList.Add(orderDisplayItem);
+			}
+			return orderDisplay;
+		}
+
+		public bool Save(Order order)
 		{
 			//code that saves the defined customer 
 			return true;

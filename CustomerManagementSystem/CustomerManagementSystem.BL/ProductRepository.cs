@@ -29,7 +29,7 @@ namespace CustomerManagementSystem.BL
 			return new List<Product>();
 		}
 
-		public bool Save()
+		public bool Save(Product product)
 		{
 			//code that saves the defined customer 
 			return true;

@@ -55,6 +55,7 @@
     <Compile Include="CustomerRepositoryTest.cs" />
     <Compile Include="ProductRepositoryTest.cs" />
     <Compile Include="OrderRepositoryTest.cs" />
+    <Compile Include="AddressRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomerManagementSystem.BL\CustomerManagementSystem.BL.csproj">

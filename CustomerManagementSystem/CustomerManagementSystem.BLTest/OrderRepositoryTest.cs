@@ -24,5 +24,13 @@ namespace CustomerManagementSystem.BLTest
 			Assert.AreEqual(expected.OrderId, actual.OrderId);
 			Assert.AreEqual(expected.OrderDate, actual.OrderDate);
 		}
+
+		[TestMethod]
+		public void RetrieveOrderDisplayTest()
+		{
+			//arrange
+			//var orderRepository = new OrderRepository();
+
+		}
 	}
 }
