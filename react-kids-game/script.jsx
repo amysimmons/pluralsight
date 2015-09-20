@@ -43,31 +43,25 @@ var ButtonFrame = React.createClass({
 		switch(correct){
 			case true:
 				button = (
-					<div id="button-frame">
-						<button className="btn btn-success btn-lg"
-								onClick={this.props.acceptAnswer}>
-							<span className="glyphicon glyphicon-ok"></span>
-						</button>
-					</div>
+					<button className="btn btn-success btn-lg"
+							onClick={this.props.acceptAnswer}>
+						<span className="glyphicon glyphicon-ok"></span>
+					</button>
 				);
 				break;
 			case false:
 				button = (
-					<div id="button-frame">
-						<button className="btn btn-danger btn-lg">
-							<span className="glyphicon glyphicon-remove"></span>
-						</button>
-					</div>
+					<button className="btn btn-danger btn-lg">
+						<span className="glyphicon glyphicon-remove"></span>
+					</button>
 				);
 				break;
 			default:
 				disabled = (this.props.selectedNumbers.length === 0);
 				button = (
-					<div id="button-frame">
-						<button className="btn btn-primary btn-lg" disabled={disabled} onClick={this.props.checkAnswer}>
-							=
-						</button>
-					</div>
+					<button className="btn btn-primary btn-lg" disabled={disabled} onClick={this.props.checkAnswer}>
+						=
+					</button>
 				);
 		}
 		return (
