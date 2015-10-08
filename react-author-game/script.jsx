@@ -10,7 +10,7 @@ var Quiz = React.createClass({
 	},
 	//when a user selects an answer, it will bubble the selected book up to this component 
 	handleBookSelected: function(title){
-		var isCorrect = this.state.checkAnwer(title);
+		var isCorrect = this.state.checkAnswer(title);
 		this.setState({
 			bgClass: isCorrect ? 'pass' : 'fail',
 			showContinue: isCorrect
