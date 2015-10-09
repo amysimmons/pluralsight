@@ -16,6 +16,9 @@ var Quiz = React.createClass({
 			showContinue: isCorrect
 		});
 	},
+	handleContinue: function(){
+		this.setState(this.getInitialState());
+	},
 	render: function() {
 		return (<div>
 			<div className="row">
@@ -29,7 +32,15 @@ var Quiz = React.createClass({
 				</div>
 				<div className={"col-md-1 " + this.state.bgClass}></div>
 			</div>
-		</div>);
+			{this.state.showContinue ? (
+			<div className="row">
+				<div className="col-md-12">
+					<input onClick={this.handleContinue} type="button" className="btn btn-primary" value="Continue"/>
+				</div>
+			</div>) : <span/>
+			}
+			</div>
+		);
 	}
 });
 
